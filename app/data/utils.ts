@@ -1,9 +1,16 @@
-import { Category, categories } from "./apis";
+import { type Category, categories } from "./apis.ts";
+
+export const slugify = (name: string) => {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+};
 
 export const getApiBySlug = (slug: string) => {
   for (const category of categories) {
     const api = category.apis.find((api) => {
-      const apiSlug = api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+      const apiSlug = slugify(api.name);
       return apiSlug === slug;
     });
     if (api) return { api, category };
@@ -14,7 +21,7 @@ export const getApiBySlug = (slug: string) => {
 export const getAllApiSlugs = () => {
   return categories.flatMap((category) =>
     category.apis.map((api) => ({
-      slug: api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""),
+      slug: slugify(api.name),
     }))
   );
 };
