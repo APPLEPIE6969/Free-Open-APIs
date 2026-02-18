@@ -1,13 +1,14 @@
 "use client";
 
 import { categories } from "@/app/data/apis";
+import { generateSlug } from "@/app/data/utils";
 import Link from "next/link";
 
 export default function APIList() {
   return (
     <div className="space-y-16 mt-16 px-6 md:px-8">
       {categories.map((category) => {
-        const categorySlug = category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        const categorySlug = generateSlug(category.name);
         return (
           <div
             key={category.name}
@@ -26,7 +27,7 @@ export default function APIList() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {category.apis.map((api, idx) => {
-                const apiSlug = api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+                const apiSlug = generateSlug(api.name);
                 return (
                   <Link
                     key={idx}
