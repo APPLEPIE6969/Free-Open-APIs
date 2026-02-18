@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { categories } from "@/app/data/apis";
 
 export default function MobileNav() {
   return (
@@ -16,7 +15,7 @@ export default function MobileNav() {
         <span className="material-symbols-outlined text-[24px]">grid_view</span>
         <span className="text-[10px] font-medium">Browse</span>
       </Link>
-      <Link href="#" className="flex flex-col items-center gap-1 text-zinc-400 hover:text-primary transition-colors p-2">
+      <Link href="/account" className="flex flex-col items-center gap-1 text-zinc-400 hover:text-primary transition-colors p-2">
         <span className="material-symbols-outlined text-[24px]">account_circle</span>
         <span className="text-[10px] font-medium">Account</span>
       </Link>

@@ -13,7 +13,7 @@ export default function CategoryGrid() {
         </h2>
         <Link
           className="text-xs font-medium text-zinc-500 hover:text-primary transition-colors"
-          href="#"
+          href="/categories"
         >
           View all
         </Link>
@@ -23,7 +23,7 @@ export default function CategoryGrid() {
           <Link
             key={category.name}
             className="group p-3 md:p-4 bg-surface-dark rounded-xl border border-surface-border hover:border-primary/50 transition-all hover:bg-surface-hover flex flex-col items-center text-center md:items-start md:text-left"
-            href={`#${category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+            href={`/categories/${category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
           >
             <div className="flex items-center justify-between w-full mb-2 md:mb-3">
               <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-primary/20">

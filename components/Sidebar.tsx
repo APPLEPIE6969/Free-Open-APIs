@@ -23,14 +23,14 @@ export default function Sidebar() {
         </Link>
         <Link
           className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="#"
+          href="/popular"
         >
           <span className="material-symbols-outlined group-hover:text-primary transition-colors text-[20px]">whatshot</span>
           Popular APIs
         </Link>
         <Link
           className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="#"
+          href="/new"
         >
           <span className="material-symbols-outlined group-hover:text-primary transition-colors text-[20px]">new_releases</span>
           New Arrivals
@@ -40,7 +40,7 @@ export default function Sidebar() {
           <Link
             key={category.name}
             className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-            href={`/#${category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+            href={`/categories/${category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
           >
             <span className="material-symbols-outlined text-[18px] text-primary">{category.icon}</span>
             <span className="truncate">{category.name}</span>
@@ -50,14 +50,14 @@ export default function Sidebar() {
       <div className="p-4 border-t border-surface-border">
         <Link
           className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="#"
+          href="/about"
         >
           <span className="material-symbols-outlined">info</span>
           About
         </Link>
         <Link
           className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="#"
+          href="/submit"
         >
           <span className="material-symbols-outlined">add_circle</span>
           Submit API
