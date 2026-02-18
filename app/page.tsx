@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import FeaturedCollections from "@/components/FeaturedCollections";
 import CategoryGrid from "@/components/CategoryGrid";
 import Footer from "@/components/Footer";
+import APIList from "@/components/APIList";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
           <Hero />
           <FeaturedCollections />
           <CategoryGrid />
+          <APIList />
           <Footer />
         </div>
       </main>

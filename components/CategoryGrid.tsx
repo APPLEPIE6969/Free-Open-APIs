@@ -1,15 +1,5 @@
 import Link from "next/link";
-
-const categories = [
-  { name: "Animals", icon: "pets", count: 24, description: "Dogs, cats, fish..." },
-  { name: "Development", icon: "code", count: 32, description: "Tools, testing, CI..." },
-  { name: "Games", icon: "sports_esports", count: 18, description: "Scores, items, mods..." },
-  { name: "Music", icon: "music_note", count: 15, description: "Lyrics, songs, tabs..." },
-  { name: "Science", icon: "science", count: 14, description: "Math, physics, space..." },
-  { name: "Weather", icon: "cloud", count: 22, description: "Forecasts, alerts..." },
-  { name: "Crypto", icon: "currency_bitcoin", count: 42, description: "Coins, exchanges..." },
-  { name: "Security", icon: "security", count: 8, description: "InfoSec, checks..." },
-];
+import { categories } from "@/app/data/apis";
 
 export default function CategoryGrid() {
   return (
@@ -21,7 +11,7 @@ export default function CategoryGrid() {
         </h2>
         <Link
           className="text-xs font-medium text-zinc-500 hover:text-primary transition-colors"
-          href="/"
+          href="#"
         >
           View all categories
         </Link>
@@ -31,20 +21,22 @@ export default function CategoryGrid() {
           <Link
             key={category.name}
             className="group p-4 bg-surface-dark rounded-xl border border-surface-border hover:border-primary/50 transition-all hover:bg-surface-hover"
-            href="/"
+            href={`#${category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
           >
             <div className="flex items-center justify-between mb-3">
               <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-primary/20">
                 <span className="material-symbols-outlined">{category.icon}</span>
               </div>
               <span className="text-[10px] font-semibold text-zinc-400 bg-black px-2 py-0.5 rounded-full border border-surface-border">
-                {category.count}
+                {category.apis.length}
               </span>
             </div>
-            <h3 className="text-white font-medium text-sm group-hover:text-primary">
+            <h3 className="text-white font-medium text-sm group-hover:text-primary truncate">
               {category.name}
             </h3>
-            <p className="text-zinc-500 text-xs mt-1">{category.description}</p>
+            <p className="text-zinc-500 text-xs mt-1 line-clamp-2">
+              {category.description}
+            </p>
           </Link>
         ))}
       </div>

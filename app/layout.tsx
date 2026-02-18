@@ -20,10 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=optional"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
       </head>
       <body
         className={`${inter.variable} antialiased bg-background-dark text-white font-display flex h-screen overflow-hidden`}
