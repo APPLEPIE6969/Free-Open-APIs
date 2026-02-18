@@ -24,6 +24,11 @@
   }
 }
 
+/* Safe area padding for mobile bottom nav on iOS */
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
 .hero-gradient {
   background: radial-gradient(circle at top center, rgba(0, 245, 212, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
 }
