@@ -27,7 +27,7 @@ export default async function ApiPage({ params }: { params: Params }) {
   return (
     <div className="flex h-screen overflow-hidden bg-background-dark text-white font-display">
       <Sidebar />
-      <main className="flex-1 flex flex-col h-full overflow-hidden bg-background-dark relative pb-20 md:pb-0">
+      <main className="flex-1 flex flex-col h-full overflow-hidden bg-background-dark relative">
         <header className="h-16 flex items-center justify-between px-6 border-b border-surface-border bg-background-dark/80 backdrop-blur-md sticky top-0 z-20">
           <div className="flex items-center gap-4">
             <Link href="/" className="md:hidden p-1 text-zinc-400 hover:text-white">
@@ -39,7 +39,7 @@ export default async function ApiPage({ params }: { params: Params }) {
           </div>
         </header>
 
-        <div className="flex-1 overflow-y-auto p-4 md:p-8 scrollbar-hide hero-gradient">
+        <div className="flex-1 overflow-y-auto p-4 md:p-8 scrollbar-hide hero-gradient pb-32 md:pb-8">
           <div className="max-w-4xl mx-auto">
             <div className="mb-8">
               {!mobile && (
