@@ -7,11 +7,10 @@ export default function APIList() {
   return (
     <div className="space-y-16 mt-16 px-6 md:px-8">
       {categories.map((category) => {
-        const categorySlug = category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
         return (
           <div
             key={category.name}
-            id={categorySlug}
+            id={category.slug}
             className="scroll-mt-24"
           >
             <div className="flex items-center gap-3 mb-6 border-b border-surface-border pb-4">
@@ -26,11 +25,10 @@ export default function APIList() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {category.apis.map((api, idx) => {
-                const apiSlug = api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
                 return (
                   <Link
                     key={idx}
-                    href={`/api/${apiSlug}`}
+                    href={`/api/${api.slug}`}
                     className="bg-surface-dark rounded-xl border border-surface-border p-5 hover:border-primary/60 transition-all group h-full flex flex-col relative overflow-hidden"
                   >
                     <div className="flex items-start justify-between mb-4 relative z-10">

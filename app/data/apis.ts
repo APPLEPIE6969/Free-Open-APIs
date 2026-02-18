@@ -1,4 +1,4 @@
-export interface API {
+export interface RawAPI {
   name: string;
   description: string;
   url?: string;
@@ -6,14 +6,23 @@ export interface API {
   status?: "Online" | "Offline" | "Unknown";
 }
 
-export interface Category {
+export interface RawCategory {
   name: string;
   icon: string;
   description: string;
+  apis: RawAPI[];
+}
+
+export interface API extends RawAPI {
+  slug: string;
+}
+
+export interface Category extends RawCategory {
+  slug: string;
   apis: API[];
 }
 
-export const categories: Category[] = [
+const RAW_CATEGORIES: RawCategory[] = [
   {
     name: "Games & Comics",
     icon: "sports_esports",
@@ -1994,3 +2003,12 @@ export const categories: Category[] = [
     ],
   },
 ];
+
+export const categories: Category[] = RAW_CATEGORIES.map((category) => ({
+  ...category,
+  slug: category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+  apis: category.apis.map((api) => ({
+    ...api,
+    slug: api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""),
+  })),
+}));
