@@ -1,8 +1,11 @@
+import Link from "next/link";
+
 interface CollectionCardProps {
   title: string;
   description: string;
   icon: string;
   tags: string[];
+  href: string;
 }
 
 const collections: CollectionCardProps[] = [
@@ -11,18 +14,21 @@ const collections: CollectionCardProps[] = [
     description: "All the Pokémon data you'll ever need in one place, easily accessible through a modern RESTful API.",
     icon: "capture",
     tags: ["REST", "No Auth"],
+    href: "https://pokeapi.co/",
   },
   {
     title: "JSONPlaceholder",
     description: "Free fake API for testing and prototyping. Powered by JSON Server + LowDB.",
     icon: "data_object",
     tags: ["REST", "Mock"],
+    href: "https://jsonplaceholder.typicode.com/",
   },
   {
     title: "Cat Facts",
     description: "Daily cat facts for the feline enthusiast. Simple, reliable, and full of meows.",
     icon: "pets",
     tags: ["JSON", "Fun"],
+    href: "https://catfact.ninja/",
   },
 ];
 
@@ -37,8 +43,10 @@ export default function FeaturedCollections() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {collections.map((collection, index) => (
-          <div
+          <Link
             key={index}
+            href={collection.href}
+            target="_blank"
             className="bg-surface-dark rounded-xl border border-surface-border p-5 hover:border-primary/60 transition-all group cursor-pointer h-full flex flex-col"
           >
             <div className="flex items-start justify-between mb-4">
@@ -71,7 +79,7 @@ export default function FeaturedCollections() {
                 Details <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
               </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

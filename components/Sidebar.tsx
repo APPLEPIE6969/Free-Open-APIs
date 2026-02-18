@@ -22,14 +22,14 @@ export default function Sidebar() {
         </Link>
         <Link
           className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="/"
+          href="/search?sort=popular"
         >
           <span className="material-symbols-outlined group-hover:text-primary transition-colors text-[20px]">whatshot</span>
           Popular APIs
         </Link>
         <Link
           className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="/"
+          href="/search?sort=new"
         >
           <span className="material-symbols-outlined group-hover:text-primary transition-colors text-[20px]">new_releases</span>
           New Arrivals
@@ -37,56 +37,56 @@ export default function Sidebar() {
         <div className="px-3 mt-8 mb-2 text-xs font-semibold text-zinc-500 uppercase tracking-wider">Categories</div>
         <Link
           className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="/"
+          href="/category/animals"
         >
           <span className="material-symbols-outlined text-[18px] text-primary">pets</span>
           Animals
         </Link>
         <Link
           className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="/"
+          href="/category/development"
         >
           <span className="material-symbols-outlined text-[18px] text-primary">code</span>
           Development
         </Link>
         <Link
           className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="/"
+          href="/category/games"
         >
           <span className="material-symbols-outlined text-[18px] text-primary">sports_esports</span>
           Games
         </Link>
         <Link
           className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="/"
+          href="/category/music"
         >
           <span className="material-symbols-outlined text-[18px] text-primary">music_note</span>
           Music
         </Link>
         <Link
           className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="/"
+          href="/category/science"
         >
           <span className="material-symbols-outlined text-[18px] text-primary">science</span>
           Science
         </Link>
         <Link
           className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="/"
+          href="/category/weather"
         >
           <span className="material-symbols-outlined text-[18px] text-primary">cloud</span>
           Weather
         </Link>
         <Link
           className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="/"
+          href="/category/crypto"
         >
           <span className="material-symbols-outlined text-[18px] text-primary">currency_bitcoin</span>
           Crypto
         </Link>
         <Link
           className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="/"
+          href="/category/security"
         >
           <span className="material-symbols-outlined text-[18px] text-primary">security</span>
           Security
@@ -95,14 +95,14 @@ export default function Sidebar() {
       <div className="p-4 border-t border-surface-border">
         <Link
           className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="/"
+          href="/about"
         >
           <span className="material-symbols-outlined">info</span>
           About
         </Link>
         <Link
           className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-          href="/"
+          href="/submit"
         >
           <span className="material-symbols-outlined">add_circle</span>
           Submit API
