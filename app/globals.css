@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00f5d4;
+  --color-primary-dark: #00d1b2;
+  --color-background-dark: #000000;
+  --color-surface-dark: #111111;
+  --color-surface-border: #333333;
+  --color-surface-hover: #222222;
+  --color-sidebar-bg: #000000;
+
+  --font-display: var(--font-inter);
+  --font-body: var(--font-inter);
+
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+/* Custom utilities */
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at top center, rgba(0, 245, 212, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.glass-card {
+  background-color: var(--color-surface-dark);
+  border-color: var(--color-surface-border);
+}
+
+body {
+  background-color: var(--color-background-dark);
+  color: white;
+  font-family: var(--font-body);
+}
