@@ -15,7 +15,7 @@ export default function SubmitPage() {
             <h1 className="text-lg font-bold tracking-tight text-white">Submit API</h1>
           </div>
         </header>
-        <div className="flex-1 overflow-y-auto p-8 flex items-center justify-center flex-col text-center pb-32 md:pb-8">
+        <div className="flex-1 overflow-y-auto p-8 flex items-center justify-center flex-col text-center pb-32 md:pb-8 animate-slide-up">
           <span className="material-symbols-outlined text-6xl text-zinc-600 mb-4">add_circle</span>
           <h2 className="text-xl font-semibold mb-2">Submit an API</h2>
           <p className="text-zinc-400 max-w-md mb-6">

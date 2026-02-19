@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function CategoryGrid() {
   return (
-    <div>
+    <div className="animate-slide-up stagger-2">
       <div className="flex items-center justify-between mb-4 md:mb-6">
         <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
           <span className="material-symbols-outlined text-primary text-[20px] md:text-[24px]">category</span>

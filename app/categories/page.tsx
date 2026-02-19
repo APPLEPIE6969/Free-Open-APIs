@@ -20,7 +20,7 @@ export default function CategoriesPage() {
         </header>
 
         <div className="flex-1 overflow-y-auto p-4 md:p-8 scrollbar-hide hero-gradient pb-32 md:pb-8">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto animate-slide-up">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4">
               {categories.map((category) => (
                 <Link

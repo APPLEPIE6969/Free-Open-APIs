@@ -26,7 +26,7 @@ function SearchContent() {
   }, [query]);
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto animate-slide-up">
       <header className="h-16 flex items-center justify-between px-6 border-b border-surface-border bg-background-dark/80 backdrop-blur-md sticky top-0 z-20 -mx-4 md:-mx-8 mb-4 md:mb-8">
         <div className="flex-1 max-w-xl relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">

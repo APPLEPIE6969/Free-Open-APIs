@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <div className="relative rounded-2xl overflow-hidden glass-card border mb-10 p-8 md:p-12">
+    <div className="relative rounded-2xl overflow-hidden glass-card border mb-10 p-8 md:p-12 animate-slide-up">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
       <div className="relative z-10 max-w-2xl">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs font-semibold uppercase tracking-wider mb-4">
