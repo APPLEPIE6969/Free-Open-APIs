@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function APIList() {
   return (
-    <div className="space-y-16 mt-16 px-6 md:px-8">
+    <div className="space-y-16 mt-16 px-6 md:px-8 animate-slide-up stagger-3">
       {categories.map((category) => {
         const categorySlug = category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
         return (
