@@ -40,7 +40,7 @@ export default async function ApiPage({ params }: { params: Params }) {
         </header>
 
         <div className="flex-1 overflow-y-auto p-4 md:p-8 scrollbar-hide hero-gradient pb-32 md:pb-8">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto animate-slide-up">
             <div className="mb-8">
               {!mobile && (
                 <Link
