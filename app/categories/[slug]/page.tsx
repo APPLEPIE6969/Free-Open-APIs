@@ -37,7 +37,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
         </header>
 
         <div className="flex-1 overflow-y-auto p-4 md:p-8 scrollbar-hide hero-gradient pb-32 md:pb-8">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto animate-slide-up">
             <div className="flex items-center gap-3 mb-6 md:mb-10">
               <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20">
                 <span className="material-symbols-outlined text-[24px] md:text-[32px]">{category.icon}</span>
@@ -48,7 +48,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
               {category.apis.map((api, idx) => {
                 const apiSlug = api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
                 return (

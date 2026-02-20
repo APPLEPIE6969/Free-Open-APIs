@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function CategoryGrid() {
   return (
-    <div>
+    <div className="mb-10 animate-slide-up stagger-2">
       <div className="flex items-center justify-between mb-4 md:mb-6">
         <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
           <span className="material-symbols-outlined text-primary text-[20px] md:text-[24px]">category</span>
@@ -18,7 +18,7 @@ export default function CategoryGrid() {
           View all
         </Link>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4 stagger-children">
         {categories.map((category) => (
           <Link
             key={category.name}

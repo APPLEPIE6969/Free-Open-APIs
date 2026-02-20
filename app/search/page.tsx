@@ -26,7 +26,7 @@ function SearchContent() {
   }, [query]);
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto animate-slide-up">
       <header className="h-16 flex items-center justify-between px-6 border-b border-surface-border bg-background-dark/80 backdrop-blur-md sticky top-0 z-20 -mx-4 md:-mx-8 mb-4 md:mb-8">
         <div className="flex-1 max-w-xl relative">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500">
@@ -62,12 +62,12 @@ function SearchContent() {
       </h1>
 
       {results.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-2 stagger-children">
           {results.map((api, idx) => {
             const apiSlug = api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
             return (
               <Link
-                key={idx}
+                key={api.name}
                 href={`/api/${apiSlug}`}
                 className="bg-surface-dark rounded-xl border border-surface-border p-5 hover:border-primary/60 transition-all group h-full flex flex-col relative overflow-hidden"
               >
@@ -104,7 +104,7 @@ function SearchContent() {
           })}
         </div>
       ) : (
-        <div className="text-zinc-500 text-center py-20">
+        <div className="text-zinc-500 text-center py-20 animate-fade-in">
           <span className="material-symbols-outlined text-6xl mb-4 opacity-50">search_off</span>
           <p>No results found. Try a different term.</p>
         </div>

@@ -16,7 +16,7 @@ export default function AboutPage() {
           </div>
         </header>
         <div className="flex-1 overflow-y-auto p-8 pb-32 md:pb-8">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto animate-slide-up">
             <h2 className="text-2xl font-bold mb-4">About Open API Hub</h2>
             <p className="text-zinc-400 mb-6 leading-relaxed">
               Open API Hub is a curated collection of free public APIs for developers.
