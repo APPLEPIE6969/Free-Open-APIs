@@ -3,7 +3,6 @@ import Sidebar from "../../../components/Sidebar";
 import MobileNav from "../../../components/MobileNav";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { isMobile } from "../../data/device";
 
 // Define params type for Next.js 15+
 type Params = Promise<{ slug: string }>;
@@ -15,7 +14,6 @@ export async function generateStaticParams() {
 export default async function CategoryPage({ params }: { params: Params }) {
   const { slug } = await params;
   const category = getCategoryBySlug(slug);
-  const mobile = await isMobile();
 
   if (!category) {
     notFound();

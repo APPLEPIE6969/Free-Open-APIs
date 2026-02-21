@@ -1,4 +1,4 @@
-import { Category, categories } from "./apis";
+import { categories } from "./apis";
 
 export const getApiBySlug = (slug: string) => {
   for (const category of categories) {

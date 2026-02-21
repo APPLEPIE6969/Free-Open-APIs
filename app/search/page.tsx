@@ -1,28 +1,29 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState, useMemo, Suspense } from "react";
 import Sidebar from "../../components/Sidebar";
 import MobileNav from "../../components/MobileNav";
 import Link from "next/link";
-import { categories, API } from "@/app/data/apis";
+import { categories } from "@/app/data/apis";
 
 function SearchContent() {
   const searchParams = useSearchParams();
-  const query = searchParams.get("q") || "";
-  const [results, setResults] = useState<API[]>([]);
+  const queryParam = searchParams.get("q") || "";
+  const [query, setQuery] = useState(queryParam);
 
+  // Sync state with URL param (e.g. on back button)
   useEffect(() => {
-    if (query) {
-      const lowerQuery = query.toLowerCase();
-      const filtered = categories.flatMap(cat => cat.apis).filter(api =>
-        api.name.toLowerCase().includes(lowerQuery) ||
-        api.description.toLowerCase().includes(lowerQuery)
-      );
-      setResults(filtered);
-    } else {
-      setResults([]);
-    }
+    setQuery(queryParam);
+  }, [queryParam]);
+
+  const results = useMemo(() => {
+    if (!query) return [];
+    const lowerQuery = query.toLowerCase();
+    return categories.flatMap(cat => cat.apis).filter(api =>
+      api.name.toLowerCase().includes(lowerQuery) ||
+      api.description.toLowerCase().includes(lowerQuery)
+    );
   }, [query]);
 
   return (
@@ -36,22 +37,18 @@ function SearchContent() {
             className="w-full bg-surface-dark border border-surface-border rounded-lg pl-10 pr-4 py-2 text-sm text-white placeholder-zinc-500 focus:ring-1 focus:ring-primary focus:border-primary transition-all shadow-sm"
             placeholder="Search for 'Weather', 'Crypto', 'Cats'..."
             type="text"
-            defaultValue={query}
+            value={query}
             onChange={(e) => {
+              const val = e.target.value;
+              setQuery(val);
+
               const params = new URLSearchParams(window.location.search);
-              if (e.target.value) {
-                params.set("q", e.target.value);
+              if (val) {
+                params.set("q", val);
               } else {
                 params.delete("q");
               }
               window.history.replaceState(null, '', `?${params.toString()}`);
-
-              const lowerQuery = e.target.value.toLowerCase();
-              const filtered = categories.flatMap(cat => cat.apis).filter(api =>
-                api.name.toLowerCase().includes(lowerQuery) ||
-                api.description.toLowerCase().includes(lowerQuery)
-              );
-              setResults(filtered);
             }}
           />
         </div>
