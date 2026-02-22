@@ -1,4 +1,4 @@
-import { getAllCategorySlugs, getCategoryBySlug } from "../../data/utils";
+import { getAllCategorySlugs, getCategoryBySlug, generateSlug } from "../../data/utils";
 import Sidebar from "../../../components/Sidebar";
 import MobileNav from "../../../components/MobileNav";
 import Link from "next/link";
@@ -50,7 +50,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {category.apis.map((api, idx) => {
-                const apiSlug = api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+                const apiSlug = generateSlug(api.name);
                 return (
                   <Link
                     key={idx}

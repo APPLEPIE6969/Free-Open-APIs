@@ -1,0 +1,41 @@
+
+> temp-app@0.1.0 dev
+> next dev -p 3000 -H 0.0.0.0
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+- Experiments (use with caution):
+  · serverActions
+
+✓ Starting...
+✓ Ready in 1899ms
+○ Compiling / ...
+ GET / 200 in 5.9s (compile: 4.3s, render: 1602ms)
+ GET / 200 in 557ms (compile: 6ms, render: 551ms)
+ GET /terms 200 in 981ms (compile: 625ms, render: 356ms)
+ GET / 200 in 504ms (compile: 4ms, render: 500ms)
+ GET /terms 200 in 134ms (compile: 4ms, render: 130ms)
+ GET /privacy 200 in 798ms (compile: 477ms, render: 321ms)
+ GET /contact 200 in 806ms (compile: 482ms, render: 324ms)
+ GET / 200 in 391ms (compile: 3ms, render: 387ms)
+ GET /terms 200 in 74ms (compile: 7ms, render: 66ms)
+ GET / 200 in 443ms (compile: 4ms, render: 439ms)
+ GET /privacy 200 in 58ms (compile: 4ms, render: 55ms)
+ GET / 200 in 447ms (compile: 10ms, render: 437ms)
+ GET /contact 200 in 61ms (compile: 4ms, render: 58ms)
+ GET /categories/games-comics 200 in 2.2s (compile: 1433ms, generate-params: 945ms, render: 787ms)
+ GET /api/pokeapi 404 in 1455ms (compile: 1331ms, generate-params: 831ms, render: 124ms)
+ GET / 200 in 548ms (compile: 4ms, render: 543ms)
+ GET /terms 200 in 140ms (compile: 3ms, render: 136ms)
+ GET /privacy 200 in 181ms (compile: 3ms, render: 178ms)
+ GET /contact 200 in 224ms (compile: 3ms, render: 221ms)
+ GET / 200 in 379ms (compile: 3ms, render: 376ms)
+ GET /terms 200 in 66ms (compile: 3ms, render: 62ms)
+ GET / 200 in 350ms (compile: 3ms, render: 347ms)
+ GET /privacy 200 in 99ms (compile: 3ms, render: 96ms)
+ GET / 200 in 489ms (compile: 7ms, render: 482ms)
+ GET /contact 200 in 59ms (compile: 3ms, render: 56ms)
+ GET /categories/games-comics 200 in 661ms (compile: 31ms, generate-params: 24ms, render: 630ms)
+ GET /api/pok-api 200 in 503ms (compile: 28ms, generate-params: 25ms, render: 475ms)
+[?25h
