@@ -55,7 +55,8 @@ export default async function CategoryPage({ params }: { params: Params }) {
                   <Link
                     key={idx}
                     href={`/api/${apiSlug}`}
-                    className="bg-surface-dark rounded-xl border border-surface-border p-5 hover:border-primary/60 transition-all group h-full flex flex-col relative overflow-hidden"
+                    className="bg-surface-dark rounded-xl border border-surface-border p-5 hover:border-primary/60 transition-all group h-full flex flex-col relative overflow-hidden animate-slide-up"
+                    style={{ animationDelay: `${idx * 50}ms` }}
                   >
                     <div className="flex items-start justify-between mb-4 relative z-10">
                       <div className="flex gap-2 flex-wrap">
