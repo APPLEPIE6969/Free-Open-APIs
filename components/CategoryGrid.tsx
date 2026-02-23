@@ -19,10 +19,13 @@ export default function CategoryGrid() {
         </Link>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4">
-        {categories.map((category) => (
+        {categories.map((category, idx) => (
           <Link
             key={category.name}
-            className="group p-3 md:p-4 bg-surface-dark rounded-xl border border-surface-border hover:border-primary/50 transition-all hover:bg-surface-hover flex flex-col items-center text-center md:items-start md:text-left"
+            className={`group p-3 md:p-4 bg-surface-dark rounded-xl border border-surface-border hover:border-primary/50 transition-all hover:bg-surface-hover flex flex-col items-center text-center md:items-start md:text-left animate-slide-up ${
+              idx < 5 ? `stagger-${idx + 1}` : ""
+            }`}
+            style={{ animationDelay: `${idx * 50}ms` }}
             href={`/categories/${category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
           >
             <div className="flex items-center justify-between w-full mb-2 md:mb-3">

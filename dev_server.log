@@ -1,0 +1,32 @@
+
+> temp-app@0.1.0 dev
+> next dev -p 3000 -H 0.0.0.0
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+- Experiments (use with caution):
+  · serverActions
+
+✓ Starting...
+✓ Ready in 1119ms
+ GET / 200 in 1540ms (compile: 378ms, render: 1161ms)
+ GET /terms 200 in 443ms (compile: 43ms, render: 400ms)
+ GET /privacy 200 in 374ms (compile: 37ms, render: 338ms)
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <form className=... onSubmit={function onSubmit} children=...>
+                               ^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '4004466537'
+}
+ GET /contact 500 in 858ms (compile: 36ms, render: 822ms)
+✓ Compiled in 492ms
+ GET / 200 in 576ms (compile: 6ms, render: 570ms)
+ GET /terms 200 in 131ms (compile: 4ms, render: 128ms)
+ GET /privacy 200 in 221ms (compile: 3ms, render: 217ms)
+ GET /contact 200 in 272ms (compile: 133ms, render: 139ms)
+ GET /account 200 in 1075ms (compile: 542ms, render: 533ms)
+ GET /categories/games-comics 200 in 1802ms (compile: 1063ms, generate-params: 576ms, render: 739ms)
+[?25h
