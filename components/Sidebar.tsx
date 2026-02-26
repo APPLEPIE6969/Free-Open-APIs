@@ -40,7 +40,7 @@ export default function Sidebar() {
           <Link
             key={category.name}
             className="group flex items-center gap-3 px-3 py-2 text-sm font-medium text-zinc-400 hover:text-white hover:bg-surface-dark rounded-lg transition-all"
-            href={`/categories/${category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+            href={`/categories/${category.slug}`}
           >
             <span className="material-symbols-outlined text-[18px] text-primary">{category.icon}</span>
             <span className="truncate">{category.name}</span>
