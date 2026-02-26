@@ -1,4 +1,4 @@
-import { Category, categories } from "./apis";
+import { type Category, categories } from "./apis.ts";
 
 export const getApiBySlug = (slug: string) => {
   for (const category of categories) {
