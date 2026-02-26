@@ -30,7 +30,7 @@ export const categories: Category[] = [
       {
         name: "Animal Crossing: New Horizons",
         description: "API for critters, fossils, art, music, furniture, and villagers. (Note: This project is often moved, currently mirrored via ACNH API).",
-        url: "http://acnhapi.com/v1/",
+        url: "https://acnhapi.com/v1/",
         tags: ["No Auth"],
         status: "Online",
       },
