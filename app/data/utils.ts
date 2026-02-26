@@ -1,10 +1,14 @@
-import { Category, categories } from "./apis";
+import type { Category } from "./apis.ts";
+import { categories } from "./apis.ts";
+
+export const generateSlug = (name: string) => {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+};
 
 export const getApiBySlug = (slug: string) => {
   for (const category of categories) {
     const api = category.apis.find((api) => {
-      const apiSlug = api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-      return apiSlug === slug;
+      return generateSlug(api.name) === slug;
     });
     if (api) return { api, category };
   }
@@ -14,20 +18,19 @@ export const getApiBySlug = (slug: string) => {
 export const getAllApiSlugs = () => {
   return categories.flatMap((category) =>
     category.apis.map((api) => ({
-      slug: api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""),
+      slug: generateSlug(api.name),
     }))
   );
 };
 
 export const getCategoryBySlug = (slug: string) => {
   return categories.find((category) => {
-    const catSlug = category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-    return catSlug === slug;
+    return generateSlug(category.name) === slug;
   });
 };
 
 export const getAllCategorySlugs = () => {
   return categories.map((category) => ({
-    slug: category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+    slug: generateSlug(category.name),
   }));
 };
