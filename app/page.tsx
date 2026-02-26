@@ -13,7 +13,7 @@ export default function Home() {
       <Sidebar />
       <main className="flex-1 flex flex-col h-full overflow-hidden bg-background-dark relative">
         <Header />
-        <div className="flex-1 overflow-y-auto p-4 md:p-8 scrollbar-hide hero-gradient pb-32 md:pb-8">
+        <div className="flex-1 overflow-y-auto p-4 md:p-8 scrollbar-hide hero-gradient pb-32 md:pb-8 animate-slide-up">
           <Hero />
           <FeaturedCollections />
           <CategoryGrid />
