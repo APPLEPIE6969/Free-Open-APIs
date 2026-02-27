@@ -5,7 +5,8 @@ import { useEffect, useState, Suspense } from "react";
 import Sidebar from "../../components/Sidebar";
 import MobileNav from "../../components/MobileNav";
 import Link from "next/link";
-import { categories, API } from "@/app/data/apis";
+import { API } from "@/app/data/apis";
+import { searchApis, generateSlug } from "@/app/data/utils";
 
 function SearchContent() {
   const searchParams = useSearchParams();
@@ -13,16 +14,7 @@ function SearchContent() {
   const [results, setResults] = useState<API[]>([]);
 
   useEffect(() => {
-    if (query) {
-      const lowerQuery = query.toLowerCase();
-      const filtered = categories.flatMap(cat => cat.apis).filter(api =>
-        api.name.toLowerCase().includes(lowerQuery) ||
-        api.description.toLowerCase().includes(lowerQuery)
-      );
-      setResults(filtered);
-    } else {
-      setResults([]);
-    }
+    setResults(searchApis(query));
   }, [query]);
 
   return (
@@ -39,19 +31,14 @@ function SearchContent() {
             defaultValue={query}
             onChange={(e) => {
               const params = new URLSearchParams(window.location.search);
-              if (e.target.value) {
-                params.set("q", e.target.value);
+              const newQuery = e.target.value;
+              if (newQuery) {
+                params.set("q", newQuery);
               } else {
                 params.delete("q");
               }
               window.history.replaceState(null, '', `?${params.toString()}`);
-
-              const lowerQuery = e.target.value.toLowerCase();
-              const filtered = categories.flatMap(cat => cat.apis).filter(api =>
-                api.name.toLowerCase().includes(lowerQuery) ||
-                api.description.toLowerCase().includes(lowerQuery)
-              );
-              setResults(filtered);
+              setResults(searchApis(newQuery));
             }}
           />
         </div>
@@ -64,7 +51,7 @@ function SearchContent() {
       {results.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-2">
           {results.map((api, idx) => {
-            const apiSlug = api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+            const apiSlug = generateSlug(api.name);
             return (
               <Link
                 key={idx}
