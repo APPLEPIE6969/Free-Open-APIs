@@ -1,9 +1,13 @@
-import { type Category, categories } from "./apis.ts";
+import { type Category, categories } from "./apis";
+
+export const generateSlug = (text: string) => {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+};
 
 export const getApiBySlug = (slug: string) => {
   for (const category of categories) {
     const api = category.apis.find((api) => {
-      const apiSlug = api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+      const apiSlug = generateSlug(api.name);
       return apiSlug === slug;
     });
     if (api) return { api, category };
@@ -14,20 +18,25 @@ export const getApiBySlug = (slug: string) => {
 export const getAllApiSlugs = () => {
   return categories.flatMap((category) =>
     category.apis.map((api) => ({
-      slug: api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""),
+      slug: generateSlug(api.name),
     }))
   );
 };
 
 export const getCategoryBySlug = (slug: string) => {
   return categories.find((category) => {
-    const catSlug = category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    // Note: Category slugs might have slightly different rules if needed,
+    // but generateSlug handles standard slugification.
+    // The previous implementation for categories was:
+    // category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+    // generateSlug adds .replace(/^-+|-+$/g, "") which is safer.
+    const catSlug = generateSlug(category.name);
     return catSlug === slug;
   });
 };
 
 export const getAllCategorySlugs = () => {
   return categories.map((category) => ({
-    slug: category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+    slug: generateSlug(category.name),
   }));
 };
