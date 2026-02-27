@@ -1,7 +1,7 @@
 import { type Category, categories } from "./apis.ts";
 
-export const getApiBySlug = (slug: string) => {
-  for (const category of categories) {
+export const getApiBySlug = (slug: string, data: Category[] = categories) => {
+  for (const category of data) {
     const api = category.apis.find((api) => {
       const apiSlug = api.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
       return apiSlug === slug;
@@ -19,8 +19,8 @@ export const getAllApiSlugs = () => {
   );
 };
 
-export const getCategoryBySlug = (slug: string) => {
-  return categories.find((category) => {
+export const getCategoryBySlug = (slug: string, data: Category[] = categories) => {
+  return data.find((category) => {
     const catSlug = category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
     return catSlug === slug;
   });
