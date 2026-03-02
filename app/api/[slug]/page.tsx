@@ -73,7 +73,7 @@ export default async function ApiPage({ params }: { params: Params }) {
                 {api.description}
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10 stagger-children">
                 <div className="bg-surface-dark rounded-xl border border-surface-border p-5 md:p-6 order-2 md:order-1">
                    <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
                       <span className="material-symbols-outlined text-primary">info</span>

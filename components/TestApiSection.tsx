@@ -46,7 +46,7 @@ export default function TestApiSection({ initialUrl }: TestApiSectionProps) {
   };
 
   return (
-    <div className="bg-surface-dark rounded-xl border border-surface-border p-6 mt-6">
+    <div className="bg-surface-dark rounded-xl border border-surface-border p-6 mt-6 animate-slide-up">
       <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
         <span className="material-symbols-outlined text-primary">science</span>
         Test API Endpoint

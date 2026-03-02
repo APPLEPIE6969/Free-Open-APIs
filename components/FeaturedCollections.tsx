@@ -28,18 +28,18 @@ const collections: CollectionCardProps[] = [
 
 export default function FeaturedCollections() {
   return (
-    <div className="mb-10">
+    <div className="mb-10 animate-slide-up">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-white flex items-center gap-2">
           <span className="material-symbols-outlined text-primary">star</span>
           Featured Collections
         </h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
         {collections.map((collection, index) => (
           <div
             key={index}
-            className="bg-surface-dark rounded-xl border border-surface-border p-5 hover:border-primary/60 transition-all group cursor-pointer h-full flex flex-col"
+            className="bg-surface-dark rounded-xl border border-surface-border p-5 hover:border-primary/60 hover:scale-[1.02] transition-all duration-300 group cursor-pointer h-full flex flex-col"
           >
             <div className="flex items-start justify-between mb-4">
               <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center border border-primary/20">
