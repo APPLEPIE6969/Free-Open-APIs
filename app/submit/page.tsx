@@ -25,7 +25,7 @@ export default function SubmitPage() {
             href="https://github.com/public-apis/public-apis"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2 bg-primary text-black font-bold rounded-lg hover:bg-primary-dark transition-colors inline-flex items-center gap-2"
+            className="px-6 py-2 bg-primary text-black font-bold rounded-lg hover:bg-primary-dark transition-all hover:scale-105 inline-flex items-center gap-2"
           >
             <span className="material-symbols-outlined text-[20px]">code</span>
             View on GitHub
