@@ -19,7 +19,7 @@ export default function NewPage() {
           <span className="material-symbols-outlined text-6xl text-zinc-600 mb-4">new_releases</span>
           <h2 className="text-xl font-semibold mb-2">Fresh APIs Added Weekly</h2>
           <p className="text-zinc-400 max-w-md">We are constantly updating our directory. Stay tuned for the latest additions.</p>
-          <Link href="/" className="mt-6 px-4 py-2 bg-surface-dark border border-surface-border rounded-lg text-sm hover:border-primary/50 transition-colors">
+          <Link href="/" className="mt-6 px-4 py-2 bg-surface-dark border border-surface-border rounded-lg text-sm hover:border-primary/50 transition-all hover:scale-105">
             Back Home
           </Link>
         </div>

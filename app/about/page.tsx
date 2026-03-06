@@ -29,7 +29,7 @@ export default function AboutPage() {
               <li>Categorized directory for easy browsing</li>
               <li>Mobile-optimized responsive design</li>
             </ul>
-            <div className="p-4 bg-surface-dark border border-surface-border rounded-xl">
+            <div className="p-4 bg-surface-dark border border-surface-border rounded-xl transition-transform hover:scale-105">
               <p className="text-sm text-zinc-500">
                 Built with Next.js and Tailwind CSS.
               </p>

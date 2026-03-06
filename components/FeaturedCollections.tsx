@@ -26,6 +26,9 @@ const collections: CollectionCardProps[] = [
   },
 ];
 
+import Link from "next/link";
+import { generateSlug } from "@/app/data/utils";
+
 export default function FeaturedCollections() {
   return (
     <div className="mb-10">
@@ -37,9 +40,10 @@ export default function FeaturedCollections() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {collections.map((collection, index) => (
-          <div
+          <Link
+            href={`/api/${generateSlug(collection.title)}`}
             key={index}
-            className="bg-surface-dark rounded-xl border border-surface-border p-5 hover:border-primary/60 transition-all group cursor-pointer h-full flex flex-col"
+            className="bg-surface-dark rounded-xl border border-surface-border p-5 hover:border-primary/60 transition-all group cursor-pointer h-full flex flex-col hover:scale-[1.02]"
           >
             <div className="flex items-start justify-between mb-4">
               <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center border border-primary/20">
@@ -71,7 +75,7 @@ export default function FeaturedCollections() {
                 Details <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
               </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
