@@ -36,7 +36,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
           </div>
         </header>
 
-        <div className="flex-1 overflow-y-auto p-4 md:p-8 scrollbar-hide hero-gradient pb-32 md:pb-8">
+        <div className="flex-1 overflow-y-auto p-4 md:p-8 scrollbar-hide hero-gradient pb-32 md:pb-8 animate-slide-up">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-6 md:mb-10 animate-slide-up">
               <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20">
@@ -55,7 +55,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
                   <Link
                     key={idx}
                     href={`/api/${apiSlug}`}
-                    className="bg-surface-dark rounded-xl border border-surface-border p-5 hover:border-primary/60 transition-all group h-full flex flex-col relative overflow-hidden"
+                    className="bg-surface-dark rounded-xl border border-surface-border p-5 hover:border-primary/60 hover:scale-[1.02] transition-all duration-300 group h-full flex flex-col relative overflow-hidden"
                   >
                     <div className="flex items-start justify-between mb-4 relative z-10">
                       <div className="flex gap-2 flex-wrap">

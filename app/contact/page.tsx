@@ -40,7 +40,7 @@ export default function ContactPage() {
                 <p className="text-zinc-400">Thank you for reaching out. We'll be in touch shortly.</p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="mt-6 text-primary text-sm hover:underline"
+                  className="mt-6 text-primary text-sm hover:underline hover:scale-[1.02] transition-all duration-300"
                 >
                   Send another message
                 </button>
@@ -79,7 +79,7 @@ export default function ContactPage() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-primary text-black font-bold rounded-lg py-3 hover:bg-primary-dark transition-colors shadow-lg shadow-primary/20"
+                  className="w-full bg-primary text-black font-bold rounded-lg py-3 hover:bg-primary-dark hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-primary/20"
                 >
                   Send Message
                 </button>
