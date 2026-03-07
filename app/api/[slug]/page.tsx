@@ -112,13 +112,13 @@ export default async function ApiPage({ params }: { params: Params }) {
                        href={api.url}
                        target="_blank"
                        rel="noopener noreferrer"
-                       className="w-full md:w-auto px-6 py-3 rounded-lg bg-primary text-black font-semibold hover:bg-primary-dark transition-colors inline-flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
+                       className="w-full md:w-auto px-6 py-3 rounded-lg bg-primary text-black font-semibold hover:bg-primary-dark hover:scale-[1.02] transition-all duration-300 inline-flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
                      >
                        Visit API
                        <span className="material-symbols-outlined text-[18px]">open_in_new</span>
                      </a>
                    ) : (
-                     <button disabled className="w-full md:w-auto px-6 py-3 rounded-lg bg-zinc-700 text-zinc-400 font-semibold cursor-not-allowed">
+                     <button disabled className="w-full md:w-auto px-6 py-3 rounded-lg bg-zinc-700 text-zinc-400 font-semibold cursor-not-allowed opacity-50">
                        No URL Available
                      </button>
                    )}

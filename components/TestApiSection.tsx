@@ -76,7 +76,7 @@ export default function TestApiSection({ initialUrl }: TestApiSectionProps) {
         <button
           onClick={handleTest}
           disabled={loading || !url}
-          className="bg-primary hover:bg-primary-dark text-black font-semibold px-6 py-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 w-full md:w-auto"
+          className="bg-primary hover:bg-primary-dark text-black font-semibold px-6 py-2 rounded-lg hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 w-full md:w-auto"
         >
           {loading ? (
             <span className="material-symbols-outlined animate-spin text-[20px]">refresh</span>
@@ -97,7 +97,7 @@ export default function TestApiSection({ initialUrl }: TestApiSectionProps) {
             <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
               <button
                 onClick={() => navigator.clipboard.writeText(response)}
-                className="p-1.5 rounded bg-surface-border hover:bg-surface-hover text-zinc-400 hover:text-white"
+                className="p-1.5 rounded bg-surface-border hover:bg-surface-hover hover:scale-105 transition-all duration-300 text-zinc-400 hover:text-white"
                 title="Copy JSON"
               >
                 <span className="material-symbols-outlined text-[16px]">content_copy</span>
