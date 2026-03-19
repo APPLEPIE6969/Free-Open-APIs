@@ -1,11 +1,12 @@
 "use client";
 
 import { categories } from "@/app/data/apis";
+import { generateSlug } from "@/app/data/utils";
 import Link from "next/link";
 
 const categoriesWithSlugs = categories.map((category) => ({
   ...category,
-  slug: category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+  slug: generateSlug(category.name),
 }));
 
 export default function CategoryGrid() {
