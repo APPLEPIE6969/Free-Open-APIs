@@ -2,6 +2,7 @@ import Sidebar from "../../components/Sidebar";
 import MobileNav from "../../components/MobileNav";
 import Link from "next/link";
 import { categories } from "@/app/data/apis";
+import { generateSlug } from "@/app/data/utils";
 
 export default function CategoriesPage() {
   return (
@@ -26,7 +27,7 @@ export default function CategoriesPage() {
                 <Link
                   key={category.name}
                   className="group p-3 md:p-4 bg-surface-dark rounded-xl border border-surface-border hover:border-primary/50 transition-all hover:bg-surface-hover flex flex-col items-center text-center md:items-start md:text-left"
-                  href={`/categories/${category.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                  href={`/categories/${generateSlug(category.name)}`}
                 >
                   <div className="flex items-center justify-between w-full mb-2 md:mb-3">
                     <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-primary/20">
