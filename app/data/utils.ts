@@ -4,6 +4,16 @@ export const generateSlug = (text: string) => {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 };
 
+// Pre-compute category slugs for performance
+const categoryMap = new Map<string, Category>(
+  categories.map((category) => [generateSlug(category.name), category])
+);
+
+// Pre-compute category slug objects for getAllCategorySlugs
+const categorySlugObjects = Array.from(categoryMap.keys()).map((slug) => ({
+  slug,
+}));
+
 export const searchApis = (query: string) => {
   if (!query) return [];
   const lowerQuery = query.toLowerCase();
@@ -33,14 +43,9 @@ export const getAllApiSlugs = () => {
 };
 
 export const getCategoryBySlug = (slug: string) => {
-  return categories.find((category) => {
-    const catSlug = generateSlug(category.name);
-    return catSlug === slug;
-  });
+  return categoryMap.get(slug) || null;
 };
 
 export const getAllCategorySlugs = () => {
-  return categories.map((category) => ({
-    slug: generateSlug(category.name),
-  }));
+  return categorySlugObjects;
 };

@@ -1,4 +1,4 @@
-import { generateSlug, searchApis, getApiBySlug } from './utils.ts';
+import { generateSlug, searchApis, getApiBySlug, getCategoryBySlug, getAllCategorySlugs } from './utils.ts';
 import assert from 'node:assert';
 import { describe, it } from 'node:test';
 
@@ -54,5 +54,28 @@ describe('utils', () => {
           const result = getApiBySlug('non-existent-api-slug-12345');
           assert.strictEqual(result, null);
       });
+  });
+
+  describe('getCategoryBySlug', () => {
+    it('should find a category by its slug', () => {
+      const result = getCategoryBySlug('games-comics');
+      assert.ok(result);
+      assert.strictEqual(result?.name, 'Games & Comics');
+    });
+
+    it('should return null for non-existent slug', () => {
+      const result = getCategoryBySlug('non-existent-category-slug-12345');
+      assert.strictEqual(result, null);
+    });
+  });
+
+  describe('getAllCategorySlugs', () => {
+    it('should return all category slugs', () => {
+      const slugs = getAllCategorySlugs();
+      assert.ok(Array.isArray(slugs));
+      assert.ok(slugs.length > 0);
+      assert.ok(slugs.some(s => s.slug === 'games-comics'));
+      assert.ok(slugs.some(s => s.slug === 'animals-pets'));
+    });
   });
 });
