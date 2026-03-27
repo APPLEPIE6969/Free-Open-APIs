@@ -1,8 +1,6 @@
-import { test, describe, it, before, after, mock } from "node:test";
-import assert from "node:assert";
+import dns from "node:dns/promises";
 
 // Mock global fetch
-const originalFetch = global.fetch;
 global.fetch = async (url, options) => {
   return {
     status: 200,
@@ -18,7 +16,6 @@ global.fetch = async (url, options) => {
 };
 
 // Mock DNS
-import dns from "node:dns/promises";
 dns.lookup = async (hostname) => {
   if (hostname === "private-host.com") {
      return [{ address: "127.0.0.1", family: 4 }];
