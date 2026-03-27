@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 import { categories } from "../../data/apis";
 import dns from "node:dns/promises";
 
+// DNS Cache to avoid redundant lookups for SSRF protection
+// Key: hostname, Value: { isPrivate: boolean, expiry: number }
+const DNS_CACHE = new Map<string, { isPrivate: boolean; expiry: number }>();
+const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
+
 // Pre-calculate allowed hostnames for performance
 const ALLOWED_HOSTS = new Set<string>();
 
@@ -29,8 +34,16 @@ const ALLOWED_METHODS = new Set([
 ]);
 
 async function isPrivateIp(hostname: string): Promise<boolean> {
+  const now = Date.now();
+  const cached = DNS_CACHE.get(hostname);
+
+  if (cached && cached.expiry > now) {
+    return cached.isPrivate;
+  }
+
   try {
     const addresses = await dns.lookup(hostname, { all: true });
+    let isPrivate = false;
 
     for (const { address, family } of addresses) {
       if (family === 4) {
@@ -43,7 +56,8 @@ async function isPrivateIp(hostname: string): Promise<boolean> {
           parts[0] === 127 ||
           (parts[0] === 169 && parts[1] === 254)
         ) {
-          return true;
+          isPrivate = true;
+          break;
         }
       } else if (family === 6) {
         // Check IPv6 private/special ranges
@@ -55,11 +69,14 @@ async function isPrivateIp(hostname: string): Promise<boolean> {
           address.toLowerCase().startsWith("fd") ||
           address.toLowerCase().startsWith("fe80:")
         ) {
-          return true;
+          isPrivate = true;
+          break;
         }
       }
     }
-    return false;
+
+    DNS_CACHE.set(hostname, { isPrivate, expiry: now + CACHE_TTL });
+    return isPrivate;
   } catch (error) {
     // If DNS lookup fails, treat as unsafe/invalid
     return true;
