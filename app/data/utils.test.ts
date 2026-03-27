@@ -1,4 +1,4 @@
-import { generateSlug, searchApis, getApiBySlug } from './utils.ts';
+import { generateSlug, searchApis, getApiBySlug, getAllApiSlugs, getCategoryBySlug, getAllCategorySlugs } from './utils.ts';
 import assert from 'node:assert';
 import { describe, it } from 'node:test';
 
@@ -54,5 +54,37 @@ describe('utils', () => {
           const result = getApiBySlug('non-existent-api-slug-12345');
           assert.strictEqual(result, null);
       });
+  });
+
+  describe('getAllApiSlugs', () => {
+    it('should return an array of objects with slug properties', () => {
+      const slugs = getAllApiSlugs();
+      assert.ok(Array.isArray(slugs));
+      assert.ok(slugs.length > 0);
+      assert.ok(slugs[0].slug);
+      assert.strictEqual(typeof slugs[0].slug, 'string');
+    });
+  });
+
+  describe('getCategoryBySlug', () => {
+    it('should find a category by its slug', () => {
+      const result = getCategoryBySlug('games-comics');
+      assert.ok(result);
+      assert.strictEqual(result?.name, 'Games & Comics');
+    });
+
+    it('should return undefined for non-existent slug', () => {
+      const result = getCategoryBySlug('non-existent');
+      assert.strictEqual(result, undefined);
+    });
+  });
+
+  describe('getAllCategorySlugs', () => {
+    it('should return an array of objects with slug properties', () => {
+      const slugs = getAllCategorySlugs();
+      assert.ok(Array.isArray(slugs));
+      assert.ok(slugs.length > 0);
+      assert.ok(slugs.some(s => s.slug === 'games-comics'));
+    });
   });
 });
